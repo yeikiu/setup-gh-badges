@@ -19,12 +19,19 @@ try {
     scripts = {
         ...scripts,
         "badges:win": "./scripts/generate_badges_win.sh"
+    };
+
+    const husky = {
+        hooks: {
+            "pre-commit": "./scripts/generate_badges_win.sh"
+        }
     }
 
     jsonfile.writeFileSync(rootPkgPath, {
         ...rootPkg,
         scripts: { ...scripts },
-        "pre-commit": "./scripts/generate_badges_win.sh" });
+        husky
+    });
 
     const scriptDestDir = path.join(parentModuleBase, 'scripts');
     !fs.existsSync(scriptDestDir) && fs.mkdirSync(scriptDestDir);
