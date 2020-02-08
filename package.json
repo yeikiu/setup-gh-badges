@@ -1,5 +1,5 @@
 {
-  "name": "gh-badges-setup",
+  "name": "setup-gh-badges",
   "version": "0.0.1",
   "description": "Adds gh-badges and a pre-push hook to generate them",
   "main": "index.js",
@@ -7,17 +7,17 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yeikiu/gh-badges-setup.git"
+    "url": "https://github.com/yeikiu/setup-gh-badges.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@yeikiu"
-  },
-  "scripts": {
-    "postinstall": "node index.js"
+  "bugs": {
+    "url": "https://github.com/yeikiu/setup-gh-badges/issues"
   },
   "dependencies": {
     "gh-badges": "^2.2.1",
     "jsonfile": "^5.0.0",
     "node-jq": "^1.11.0"
+  },
+  "scripts": {
+    "postinstall": "node index.js"
   }
 }
