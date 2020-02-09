@@ -4,9 +4,8 @@ const path = require('path');
 const fs = require('fs');
 const jsonfile = require('jsonfile');
 
-// Load parent modules package.json
-const parentModuleBase = path.resolve('../..');
-
+// Load package.json relative to current shell location
+const parentModuleBase = path.resolve(__dirname, '../..');
 const rootPkgPath = path.join(parentModuleBase, 'package.json');
 let rootPkg = null;
 
@@ -23,7 +22,7 @@ try {
 
     const husky = {
         hooks: {
-            "pre-commit": "./scripts/generate_badges_win.sh"
+            "pre-push": "./scripts/generate_badges_win.sh"
         }
     }
 
