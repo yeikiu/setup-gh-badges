@@ -1,7 +1,8 @@
 <img src=".ci/npm-version-badge.svg" /> <img src=".ci/npm-dependencies-badge.svg" /> <img src=".ci/npm-devdependencies-badge.svg" /> <img src=".ci/npm-outdated-dependencies-badge.svg" />
 
-# setup-gh-badges
-gh-badges made simple
+# setup-gh-badges (Windows only... yet)
+
+> [gh-badges](https://www.npmjs.com/package/gh-badges) made simple 
 
 ## Usage
 
@@ -12,11 +13,11 @@ Will append the following to your current npm scripts under `package.json`:
 ```
 "scripts": {
     // ...your scripts,
-    "badges:win": "./scripts/generate_badges_win.sh"
+    "badges:win": "scripts/generate_badges_win.sh"
 },
 ```
 
-> NOTE: Feel free to send a PR for a Mac Bash version or even better a cross-platform JS one :-)
+> _NOTE:_ Feel free to send a PR for a Mac Bash version or even better a cross-platform JS one :-)
 
 ## Recommended if you don't have a CI server
 
@@ -27,7 +28,7 @@ Will append the following to your current npm scripts under `package.json`:
 ```
 "husky": {
     "hooks": {
-        "pre-push": "./scripts/generate_badges_win.sh"
+        "pre-push": "scripts/generate_badges_win.sh"
     }
 }
 ```
