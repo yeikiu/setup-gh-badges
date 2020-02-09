@@ -1,6 +1,6 @@
 {
   "name": "setup-gh-badges",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Adds gh-badges and an npm script in your package.json to generate them",
   "main": "index.js",
   "author": "JQ",
