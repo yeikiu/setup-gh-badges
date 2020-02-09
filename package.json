@@ -1,7 +1,7 @@
 {
   "name": "setup-gh-badges",
-  "version": "0.0.3",
-  "description": "Adds gh-badges and a pre-push hook to generate them",
+  "version": "0.0.4",
+  "description": "Adds gh-badges and an npm script in your package.json to generate them",
   "main": "index.js",
   "author": "JQ",
   "license": "MIT",
@@ -14,12 +14,11 @@
   },
   "dependencies": {
     "gh-badges": "^2.2.1",
-    "husky": "^4.2.1",
     "jsonfile": "^5.0.0",
     "node-jq": "^1.11.0",
     "yarn-outdated-formatter": "^2.1.0"
   },
   "scripts": {
-    "postinstall": "node index.js"
+    
   }
 }
