@@ -1,3 +1,5 @@
+<img src=".ci/npm-version-badge.svg" /> <img src=".ci/npm-dependencies-badge.svg" /> <img src=".ci/npm-devdependencies-badge.svg" /> <img src=".ci/npm-outdated-dependencies-badge.svg" />
+
 # setup-gh-badges
 gh-badges made simple
 
