@@ -19,6 +19,6 @@
     "yarn-outdated-formatter": "^2.1.0"
   },
   "scripts": {
-    
+    "postinstall": "node index.js"
   }
 }
