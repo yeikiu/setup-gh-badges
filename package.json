@@ -4,7 +4,7 @@
   "description": "Adds gh-badges and an npm script in your package.json to generate them",
   "main": "index.js",
   "author": "JQ",
-  "license": "MIT",
+  "license": "CC0-1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/yeikiu/setup-gh-badges.git"
