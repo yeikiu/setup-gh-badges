@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const jsonfile = require('jsonfile');
 
 // Load package.json relative to current shell location
 const parentModuleBase = path.resolve(__dirname, '../..');
@@ -17,10 +16,10 @@ try {
     };
 
     // Update parent module's package.json
-    jsonfile.writeFileSync(rootPkgPath, {
+    fs.writeFileSync(rootPkgPath, JSON.stringify({
         ...rootPkg,
         scripts: { ...scripts }
-    });
+    }));
 
     // Generate folder to hold badges
     const ciDestDir = path.join(parentModuleBase, '.ci_badges');
