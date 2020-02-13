@@ -13,7 +13,7 @@ try {
     let { scripts } = rootPkg;
     scripts = {
         ...scripts,
-        "badges:win": "scripts/generate_badges_win.sh"
+        "badges:win": "node_modules/setup-gh-badges/generate_badges_win.sh"
     };
 
     // Update parent module's package.json
@@ -22,14 +22,8 @@ try {
         scripts: { ...scripts }
     });
 
-    // Copy the bash script
-    const scriptDestDir = path.join(parentModuleBase, 'scripts');
-    !fs.existsSync(scriptDestDir) && fs.mkdirSync(scriptDestDir);
-    const scriptDestPath = path.join(scriptDestDir, 'generate_badges_win.sh');
-    fs.copyFileSync('generate_badges_win.sh', scriptDestPath);
-
     // Generate folder to hold badges
-    const ciDestDir = path.join(parentModuleBase, '.ci');
+    const ciDestDir = path.join(parentModuleBase, '.ci_badges');
     !fs.existsSync(ciDestDir) && fs.mkdirSync(ciDestDir);
     
 } catch (err) {
