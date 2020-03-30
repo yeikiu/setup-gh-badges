@@ -1,6 +1,6 @@
 <img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" /> <img src=".ci_badges/npm-outdated-dependencies-badge.svg" />
 
-# setup-gh-badges (Windows only... yet)
+# setup-gh-badges
 
 > [gh-badges](https://www.npmjs.com/package/gh-badges) made simple 
 
@@ -12,7 +12,7 @@ Will append the following to your current npm scripts under `package.json`:
 ```
     "scripts": {
         // ...your scripts,
-        "badges:win": "node_modules/setup-gh-badges/generate_badges_win.sh"
+        "sync-badges": "node node_modules/setup-gh-badges/index.js"
     },
 ```
 
@@ -26,7 +26,7 @@ Will append the following to your current npm scripts under `package.json`:
 ```
     "husky": {
         "hooks": {
-            "pre-push": "yarn badges:win"
+            "pre-push": "yarn sync-badges"
         }
     },
 ```

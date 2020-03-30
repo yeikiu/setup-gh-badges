@@ -1,6 +1,6 @@
 {
   "name": "setup-gh-badges",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Adds gh-badges and an npm script in your package.json to generate them",
   "main": "index.js",
   "author": "JQ",
@@ -14,11 +14,9 @@
   },
   "dependencies": {
     "gh-badges": "^2.2.1",
-    "node-jq": "^1.11.0",
     "yarn-outdated-formatter": "^2.1.0"
   },
   "scripts": {
-    "badges:win": "generate_badges_win.sh",
-    "postinstall": "node index.js"
+    "postinstall": "node ./setup.js"
   }
 }
