@@ -17,6 +17,7 @@
     "yarn-outdated-formatter": "^2.1.0"
   },
   "scripts": {
-    "postinstall": "node ./setup.js"
+    "postinstall": "./setup.sh",
+    "custom:setup": "node setup.js"
   }
 }
