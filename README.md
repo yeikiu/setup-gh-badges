@@ -1,4 +1,4 @@
-<img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" /> <img src=".ci_badges/npm-outdated-dependencies-badge.svg" />
+<img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" />
 
 # setup-gh-badges
 
@@ -14,6 +14,12 @@ Will append the following to your current npm scripts under `package.json`:
         // ...your scripts,
         "sync-badges": "node node_modules/setup-gh-badges/index.js"
     },
+```
+
+Finally add this to the top of your `README.md` file:
+
+```
+    <img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" />
 ```
 
 > _NOTE:_ Feel free to send a PR for a Mac Bash version or even better a cross-platform JS one :-)

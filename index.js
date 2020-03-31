@@ -57,22 +57,23 @@ try {
         text: ['devDependencies',`${numDevDependencies}`],
         color: getNumColor(numDevDependencies)
     });
-    // Get outdated dependencies
-    const { stdout, stderr } = await exec('yarn outdated --json --long');
+
+    // Get outdated dependencies WIP
+    // const { stdout, stderr } = await exec('yarn outdated --json --long');
     
-    let outdatedData = {};
-    let numOutdated = 0;
-    if( stderr.trim().length > 0) {
-        throw new Error(stderr);
-    } else if( stdout.trim().length > 0) {
-        outdatedData = JSON.parse(stdout);
-        numOutdated = outdatedData.major.length + outdatedData.minor.length + outdatedData.patch.length;
-    }
-    createBadge({
-        name: 'npm-outdated-dependencies-badge.svg',
-        text: ['outdated', `${numOutdated}`],
-        color: getNumColor(numOutdated)
-    });
+    // let outdatedData = {};
+    // let numOutdated = 0;
+    // if( stderr.trim().length > 0) {
+    //     throw new Error(stderr);
+    // } else if( stdout.trim().length > 0) {
+    //     outdatedData = JSON.parse(stdout);
+    //     numOutdated = outdatedData.major.length + outdatedData.minor.length + outdatedData.patch.length;
+    // }
+    // createBadge({
+    //     name: 'npm-outdated-dependencies-badge.svg',
+    //     text: ['outdated', `${numOutdated}`],
+    //     color: getNumColor(numOutdated)
+    // });
     
 } catch (err) {
     throw err;
