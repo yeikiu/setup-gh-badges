@@ -1,7 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
 const { BadgeFactory } = require('gh-badges')
 
 const bf = new BadgeFactory()
@@ -30,8 +28,7 @@ const getNumColor = (num) => {
  if (num > 5) return 'yellow';
 }
 
-(async() => {
-try {
+const syncBadges = async() => {
     const rootPkgPath = path.resolve(process.cwd(), 'package.json');
     const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath).toString());
     const { version = '0.0.0', dependencies = {}, devDependencies = {} } = rootPkg;
@@ -74,8 +71,29 @@ try {
     //     text: ['outdated', `${numOutdated}`],
     //     color: getNumColor(numOutdated)
     // });
-    
-} catch (err) {
-    throw err;
+};
+
+const showVersion = () => {
+    const pkgPath = path.resolve(__dirname, 'package.json');
+    rootPkg = JSON.parse(fs.readFileSync(pkgPath).toString());
+    let { name, version } = rootPkg;
+    console.info(`
+
+✔️  ${name} v${version}
+
+ℹ️   Usage:
+
+        $ sync-badges
+`);
+};
+
+// Execution starts here
+
+const [,,arg1] = process.argv;
+
+if (arg1 === '-v') {
+    showVersion();
+    process.exit();
 }
-})();
+
+syncBadges();

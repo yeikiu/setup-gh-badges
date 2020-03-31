@@ -8,19 +8,14 @@
 
 - `yarn add -D setup-gh-badges`
 
-Will append the following to your current npm scripts under `package.json`:
-```
-    "scripts": {
-        // ...your scripts,
-        "sync-badges": "node node_modules/setup-gh-badges/index.js"
-    },
-```
-
-Finally add this to the top of your `README.md` file:
+- Add this to the top of your `README.md` file:
 
 ```
     <img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" />
 ```
+
+- Run `sync-badges -v` to show current installed version anytime
+
 
 > _NOTE:_ Feel free to send a PR for a Mac Bash version or even better a cross-platform JS one :-)
 
@@ -32,7 +27,7 @@ Finally add this to the top of your `README.md` file:
 ```
     "husky": {
         "hooks": {
-            "pre-push": "yarn sync-badges"
+            "pre-push": "sync-badges"
         }
     },
 ```
