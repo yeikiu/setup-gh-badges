@@ -1,6 +1,6 @@
 {
   "name": "setup-gh-badges",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Adds gh-badges and an npm script in your package.json to generate them",
   "main": "index.js",
   "author": "JQ",
@@ -13,8 +13,7 @@
     "url": "https://github.com/yeikiu/setup-gh-badges/issues"
   },
   "dependencies": {
-    "gh-badges": "^2.2.1",
-    "yarn-outdated-formatter": "^2.1.0"
+    "gh-badges": "^2.2.1"
   },
   "scripts": {
     "postinstall": "./setup.sh",
