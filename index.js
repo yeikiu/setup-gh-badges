@@ -54,46 +54,6 @@ const syncBadges = async() => {
         text: ['devDependencies',`${numDevDependencies}`],
         color: getNumColor(numDevDependencies)
     });
-
-    // Get outdated dependencies WIP
-    // const { stdout, stderr } = await exec('yarn outdated --json --long');
-    
-    // let outdatedData = {};
-    // let numOutdated = 0;
-    // if( stderr.trim().length > 0) {
-    //     throw new Error(stderr);
-    // } else if( stdout.trim().length > 0) {
-    //     outdatedData = JSON.parse(stdout);
-    //     numOutdated = outdatedData.major.length + outdatedData.minor.length + outdatedData.patch.length;
-    // }
-    // createBadge({
-    //     name: 'npm-outdated-dependencies-badge.svg',
-    //     text: ['outdated', `${numOutdated}`],
-    //     color: getNumColor(numOutdated)
-    // });
 };
-
-const showVersion = () => {
-    const pkgPath = path.resolve(__dirname, 'package.json');
-    rootPkg = JSON.parse(fs.readFileSync(pkgPath).toString());
-    let { name, version } = rootPkg;
-    console.info(`
-
-✔️  ${name} v${version}
-
-ℹ️   Usage:
-
-        $ sync-badges
-`);
-};
-
-// Execution starts here
-
-const [,,arg1] = process.argv;
-
-if (arg1 === '-v') {
-    showVersion();
-    process.exit();
-}
 
 syncBadges();

@@ -14,7 +14,9 @@
     <img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" />
 ```
 
-- Run `sync-badges -v` to show current installed version anytime
+ℹ️   Usage:
+
+        $ yarn sync-badges
 
 
 > _NOTE:_ Feel free to send a PR for a Mac Bash version or even better a cross-platform JS one :-)
@@ -27,7 +29,7 @@
 ```
     "husky": {
         "hooks": {
-            "pre-push": "sync-badges"
+            "pre-push": "yarn sync-badges"
         }
     },
 ```
