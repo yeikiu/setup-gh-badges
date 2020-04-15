@@ -18,9 +18,6 @@
 
         $ yarn sync-badges
 
-
-> _NOTE:_ Feel free to send a PR for a Mac Bash version or even better a cross-platform JS one :-)
-
 ## 📌 Recommended if you don't have a CI server
 
 - `yarn add -D husky`
