@@ -8,7 +8,7 @@
 
 - `yarn add -D setup-gh-badges`
 
-- Add this to the top of your `README.md` file:
+- Add this snippet to the very top of your `README.md` file:
 
 ```
     <img src=".ci_badges/npm-version-badge.svg" /> <img src=".ci_badges/npm-dependencies-badge.svg" /> <img src=".ci_badges/npm-devdependencies-badge.svg" />
@@ -16,7 +16,7 @@
 
 ℹ️   Usage:
 
-        $ yarn sync-badges
+        $ npx sync-badges
 
 ## 📌 Recommended if you don't have a CI server
 
@@ -26,7 +26,7 @@
 ```
     "husky": {
         "hooks": {
-            "pre-push": "yarn sync-badges"
+            "pre-push": "npx sync-badges"
         }
     },
 ```

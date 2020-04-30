@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { BadgeFactory } = require('gh-badges')
+const { BadgeFactory } = require('gh-badges');
 
 const bf = new BadgeFactory()
 
@@ -54,6 +54,8 @@ const syncBadges = async() => {
         text: ['devDependencies',`${numDevDependencies}`],
         color: getNumColor(numDevDependencies)
     });
+
+    console.log(`\n\n✔️   ${name} v${version}: Badges updated successfully!`);
 };
 
-syncBadges();
+module.exports = syncBadges;
