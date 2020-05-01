@@ -31,7 +31,7 @@ const getNumColor = (num) => {
 const syncBadges = async() => {
     const rootPkgPath = path.resolve(process.cwd(), 'package.json');
     const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath).toString());
-    const { version = '0.0.0', dependencies = {}, devDependencies = {} } = rootPkg;
+    const { name = '', version = '', dependencies = {}, devDependencies = {} } = rootPkg;
 
     // Get version
     createBadge({

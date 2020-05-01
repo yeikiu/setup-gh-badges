@@ -1,6 +1,3 @@
-const path = require('path');
-const fs = require('fs');
-
 const setup = () => {
     const { name, version } = require('./package');
     console.log(`\n\n✔️   ${name} v${version} installed successfully!
