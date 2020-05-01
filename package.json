@@ -21,12 +21,9 @@
   "devDependencies": {
     "husky": "^4.2.5"
   },
-  "scripts": {
-    "publish:npm": "node index.js && npm publish"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "node index.js"
+      "pre-commit": "node cli.js"
     }
   }
 }
