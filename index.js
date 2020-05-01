@@ -55,7 +55,11 @@ const syncBadges = async() => {
         color: getNumColor(numDevDependencies)
     });
 
-    console.log(`\n\n✔️   ${name} v${version}: Badges updated successfully!`);
+    console.log(`\n\n✔️   ${name} v${version}: Badges updated successfully!
+    
+    # version ${version}
+    # dependencies ${numDependencies}
+    # devDependencies ${numDevDependencies}\n\n`);
 };
 
 module.exports = syncBadges;
