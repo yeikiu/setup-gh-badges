@@ -18,7 +18,7 @@
 
         $ npx sync-badges
 
-## 📌 Setup as a `GitHub Action`workflow
+## 📌 Setup as a `GitHub Action` workflow
 
 - create `.github/workflows/sync_badges.yml`
 
