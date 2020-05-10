@@ -18,6 +18,31 @@
 
         $ npx sync-badges
 
+## 📌 Setup as a `GitHub Action`workflow
+
+- create `.github/workflows/sync_badges.yml`
+
+```
+    jobs:
+      sync_badges:
+        runs-on: ubuntu-18.04
+        steps:
+          - uses: actions/checkout@v2
+          - uses: actions/setup-node@v1
+          - run: |
+              rm -rf .ci_badges
+              yarn add setup-gh-badges
+              npx sync-badges
+              git config --local user.email "action@github.com"
+              git config --local user.name "GitHub Action"
+              git add .ci_badges
+              git commit -m "[CI:deploy] sync_badges job"
+
+          - uses: ad-m/github-push-action@master
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+```
+
 ## 📌 Recommended if you don't have a CI server
 
 - `yarn add -D husky`
