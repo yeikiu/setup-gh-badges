@@ -2,7 +2,7 @@
 
 # setup-gh-badges
 
-> [gh-badges](https://www.npmjs.com/package/gh-badges) made simple 
+> [badges-maker](https://www.npmjs.com/package/badges-maker) made simple 
 
 - Add this snippet to the very top of your `README.md` file:
 
