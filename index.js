@@ -1,25 +1,23 @@
-const path = require('path');
-const fs = require('fs');
-const { BadgeFactory } = require('gh-badges');
-
-const bf = new BadgeFactory()
+const { resolve, join } = require('path');
+const { existsSync, mkdirSync, writeFileSync, readFileSync } = require('fs');
+const { makeBadge } = require('badge-maker');
 
 const createBadge = ({
-    name, text, color = 'green', template = 'flat', format = 'svg'
+    name, label, message, color = 'green', style = 'flat'
 }) => {
     // Generate folder to hold badges
-    const ciDestDir = path.resolve(process.cwd(), '.ci_badges');
-    !fs.existsSync(ciDestDir) && fs.mkdirSync(ciDestDir);
+    const ciDestDir = resolve(process.cwd(), '.ci_badges');
+    !existsSync(ciDestDir) && mkdirSync(ciDestDir);
 
     const badgeConfig = {
-        text,
+        label,
+        message,
         color,
-        template,
-        format,
+        style,
     }
     
-    const svg = bf.create(badgeConfig);
-    fs.writeFileSync(path.join(ciDestDir, name), svg);
+    const svg = makeBadge(badgeConfig)
+    writeFileSync(join(ciDestDir, name), svg);
 }
 
 const getNumColor = (num) => {
@@ -29,21 +27,23 @@ const getNumColor = (num) => {
 }
 
 const syncBadges = async() => {
-    const rootPkgPath = path.resolve(process.cwd(), 'package.json');
-    const rootPkg = JSON.parse(fs.readFileSync(rootPkgPath).toString());
+    const rootPkgPath = resolve(process.cwd(), 'package.json');
+    const rootPkg = JSON.parse(readFileSync(rootPkgPath).toString());
     const { name = '', version = '', dependencies = {}, devDependencies = {} } = rootPkg;
 
     // Get version
     createBadge({
         name: 'npm-version-badge.svg',
-        text: ['version', `${version}`]
+        label: 'version',
+        message: version
     });
 
     // Get dependencies
     const numDependencies = Object.keys(dependencies).length;
     createBadge({
         name: 'npm-dependencies-badge.svg', 
-        text: ['dependencies',`${numDependencies}`],
+        label: 'dependencies',
+        message: numDependencies.toString(),
         color: getNumColor(numDependencies)
     });
 
@@ -51,7 +51,8 @@ const syncBadges = async() => {
     const numDevDependencies = Object.keys(devDependencies).length;
     createBadge({
         name: 'npm-devdependencies-badge.svg', 
-        text: ['devDependencies',`${numDevDependencies}`],
+        label: 'devDependencies',
+        message: numDevDependencies.toString(),
         color: getNumColor(numDevDependencies)
     });
 

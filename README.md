@@ -4,10 +4,6 @@
 
 > [gh-badges](https://www.npmjs.com/package/gh-badges) made simple 
 
-## 🛠️ Add it to `devDependencies`
-
-- `yarn add -D setup-gh-badges`
-
 - Add this snippet to the very top of your `README.md` file:
 
 ```
@@ -16,7 +12,8 @@
 
 ℹ️   Usage:
 
-        $ npx sync-badges
+        $ npx setup-gh-badges
+
 
 ## 📌 Setup as a `GitHub Action` workflow
 
@@ -31,8 +28,7 @@
           - uses: actions/setup-node@v1
           - run: |
               rm -rf .ci_badges
-              yarn add setup-gh-badges
-              npx sync-badges
+              npx setup-gh-badges
               git config --local user.email "action@github.com"
               git config --local user.name "GitHub Action"
               git add .ci_badges
@@ -43,15 +39,16 @@
               github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+
 ## 📌 Recommended if you don't have a CI server
 
-- `yarn add -D husky`
+- `npm i husky --save-dev`
 
 - Then add the following hook to your `package.json`:
 ```
     "husky": {
         "hooks": {
-            "pre-push": "npx sync-badges"
+            "pre-push": "npx setup-gh-badges"
         }
     },
 ```
