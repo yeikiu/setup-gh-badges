@@ -1,6 +1,6 @@
 {
   "name": "setup-gh-badges",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "node cli helper command to update your README badges",
   "main": "./index.js",
   "bin": "./cli.js",
