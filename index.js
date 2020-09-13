@@ -1,8 +1,6 @@
-import { resolve, join } from 'path'
-import { existsSync, mkdirSync, writeFileSync, readFileSync } from 'fs'
-import badgeMaker from 'badge-maker'
-
-const { makeBadge } = badgeMaker
+const { resolve, join } = require('path')
+const { existsSync, mkdirSync, writeFileSync, readFileSync } = require('fs')
+const { makeBadge } = require('badge-maker')
 
 const createBadge = ({
     name, label, message, color = 'green', style = 'flat'
@@ -65,4 +63,4 @@ const syncBadges = async() => {
     # devDependencies ${numDevDependencies}\n\n`)
 }
 
-export default syncBadges
+module.exports = syncBadges
