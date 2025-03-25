@@ -20,23 +20,26 @@
 - create `.github/workflows/sync_badges.yml`
 
 ```
-    jobs:
-      sync_badges:
-        runs-on: ubuntu-18.04
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v1
-          - run: |
-              rm -rf .ci_badges
-              npx setup-gh-badges
-              git config --local user.email "action@github.com"
-              git config --local user.name "GitHub Action"
-              git add .ci_badges
-              git commit -m "[CI:deploy] sync_badges job"
+  jobs:
 
-          - uses: ad-m/github-push-action@master
+    sync_badges:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v4
+
+        - uses: actions/setup-node@v4
+        
+        - run: |
+            rm -rf .ci_badges
+            npx setup-gh-badges
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add .ci_badges
+            git commit -m "[CI:deploy] sync_badges job"
+
+        - uses: ad-m/github-push-action@master
             with:
-              github_token: ${{ secrets.GITHUB_TOKEN }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 
